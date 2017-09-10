@@ -21,6 +21,8 @@ public protocol CircleRotationAnimatable: ScaleAnimatable, UIAppearanceAnimatabl
 
     /// The direction of rotation. The default value is `CircleRotationDirection.clockwise`.
     @discardableResult func rotateDirection(_ direction: CircleRotationDirection) -> CircleRotationAnimatable
+
+    @discardableResult func isRotationEnabled(_ isEnabled: Bool) -> CircleRotationAnimatable
 }
 
 extension GeminiAnimationModel: CircleRotationAnimatable {
@@ -33,6 +35,12 @@ extension GeminiAnimationModel: CircleRotationAnimatable {
     @discardableResult
     public func rotateDirection(_ direction: CircleRotationDirection) -> CircleRotationAnimatable {
         rotateDirection = direction
+        return self
+    }
+
+    @discardableResult
+    public func isRotationEnabled(_ isEnabled: Bool) -> CircleRotationAnimatable {
+        isRotationEnabled = isEnabled
         return self
     }
 }
